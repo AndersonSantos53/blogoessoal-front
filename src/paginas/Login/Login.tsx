@@ -1,5 +1,5 @@
 import React, { useState, useEffect, ChangeEvent } from 'react';
-import { Grid, Typography, TextField, Button } from '@material-ui/core';
+import { Grid,Typography, TextField, Button } from '@material-ui/core';
 import {Box} from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import useLocalStorage from 'react-use-localstorage';
@@ -36,9 +36,9 @@ function Login() {
         async function onSubmit(e: ChangeEvent<HTMLFormElement>){
             e.preventDefault();
             try{
-                await login(`/usuarios/logar`, userLogin,setToken);
+                await login(`/auth/logar`, userLogin, setToken)
+
                 alert('Usuário logado com sucesso!');
-                
             }catch(error){
                 alert('Dados do usuário inconsistentes. Erro ao logar!');
             }

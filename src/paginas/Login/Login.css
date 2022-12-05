@@ -12,3 +12,12 @@
         background-Size: cover;
         background-Position: center;
 }
+.tela {
+    display: flex;
+    flex-direction: column;
+}
+@media (max-width: 500px){
+    .tela1 {
+        flex-direction: column;
+    }
+}
