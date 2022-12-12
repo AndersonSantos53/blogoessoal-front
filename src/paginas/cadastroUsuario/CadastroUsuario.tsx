@@ -1,11 +1,12 @@
-import React , {useState, useEffect, ChangeEvent } from 'react';
+import React, { useEffect, useState , ChangeEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import User from '../../models/User';
-import { cadastroUsuario } from '../../services/Service';
-import { Grid, Typography, Button, TextField } from '@material-ui/core';
+import { cadastroUsuario} from '../../services/Service';
+import { Grid,Typography, Button, TextField } from '@material-ui/core';
 import {Box} from '@mui/material';
 import { Link } from 'react-router-dom';
-import './CadastroUsuario.css';
+import './cadastrousuario.css';
+
 
 function CadastroUsuario() {
 
@@ -26,14 +27,14 @@ function CadastroUsuario() {
             nome: '',
             usuario: '',
             senha: '',
-            foto: ''
+            foto:''
         })
 
     useEffect(() => {
         if (userResult.id != 0) {
             navigate("/login")
         }
-    }, [userResult])
+    })
 
 
     function confirmarSenhaHandle(e: ChangeEvent<HTMLInputElement>){
@@ -52,8 +53,9 @@ function CadastroUsuario() {
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
         if(confirmarSenha == user.senha){
-        cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
+        cadastroUsuario(`/usuario/cadastrar`, user, setUserResult)
         alert('Usuario cadastrado com sucesso')
+        
         }else{
             alert('Dados inconsistentes. Favor verificar as informações de cadastro.')
         }
